@@ -1,6 +1,7 @@
 # README
 -test - long
 - test - andrew
+- test allen
 
 - Starter template created for rails app.
 - Following gems are installed
