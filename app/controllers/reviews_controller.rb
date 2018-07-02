@@ -1,14 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
 
-  # GET /reviews
-  # GET /reviews.json
-  def index
-    @reviews = Review.all
-  end
-
-  # GET /reviews/1
-  # GET /reviews/1.json
 
   # GET /reviews/new
   def new
@@ -23,8 +15,8 @@ class ReviewsController < ApplicationController
   # POST /reviews.json
   def create
     @review = Review.new(review_params)
-    # when user writes new review, the user id is assigned to them
     @review.user_id = current_user.id
+    @review.restaurant_id = @restaurant.id
 
     respond_to do |format|
       if @review.save
@@ -65,6 +57,10 @@ class ReviewsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_review
       @review = Review.find(params[:id])
+    end
+
+    def set_restaurant
+      @restaurant = Restaurant.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
