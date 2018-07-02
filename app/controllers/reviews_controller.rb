@@ -25,6 +25,8 @@ class ReviewsController < ApplicationController
   # POST /reviews.json
   def create
     @review = Review.new(review_params)
+    # when user writes new review, the user id is assigned to them
+    @review.user_id = current_user.id
 
     respond_to do |format|
       if @review.save
