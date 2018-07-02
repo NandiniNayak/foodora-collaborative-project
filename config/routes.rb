@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :menus
+  resources :customers
+  resources :restaurants
   devise_for :users
 
   get 'comment/index' => 'comment#index'
