@@ -1,4 +1,10 @@
 # README
+<<<<<<< HEAD
+=======
+-test - long
+- test - andrew
+- test - mariam
+>>>>>>> a3f6582a5d4b73725d0ae09f4fc242e57e1b0212
 
 - Starter template created for rails app.
 - Following gems are installed
