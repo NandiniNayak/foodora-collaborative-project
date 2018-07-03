@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  post '/rate' => 'rater#create', :as => 'rate'
   resources :menus
   resources :customers
   resources :restaurants
+  resources :reviews
   devise_for :users
 
   get 'comment/index' => 'comment#index'
