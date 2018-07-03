@@ -1,0 +1,22 @@
+<%= form_tag charges_path do %>
+  <article>
+    <% if flash[:error].present? %>
+      <div id="error_explanation">
+        <p><%= flash[:error] %></p>
+      </div>
+    <% end %>
+    <label class="amount">
+      <span>Amount: $5.00</span>
+    </label>
+  </article>
+
+  <script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="<%= ENV["FOODORA_STRIPE_PUBLISHABLE_KEY"] %>"
+    data-amount="500"
+    data-name="FOODORA"
+    data-description="Check Out"
+    data-image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQaiDx1Fe5oeTCO3ML5YO_UJBn2h8uw-QUnRlfOEHrjaWHvg3z"
+    data-locale="auto"
+    data-currency="aud"></script>
+<% end %>
