@@ -1,9 +1,14 @@
 class ChargesController < ApplicationController
-  def new; end
+  before_action :set_menu, only: [:new, :show, :edit, :update, :destroy]
+
+
+  def new
+    @amount = @menu.price
+  end
 
   def create
     # Amount in cents
-    @amount = 500
+    @amount = params[:price].to_i * 100
 
     customer = Stripe::Customer.create(
       email: params[:stripeEmail],
@@ -21,4 +26,14 @@ class ChargesController < ApplicationController
     flash[:error] = e.message
     redirect_to new_charge_path
   end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_menu
+      @menu = Menu.find(params[:menu_id])
+    end
+
+    def menu_params
+      params.require(:menu).permit(:name, :picture, :ingredients, :quantity, :price, :restaurant_id)
+    end
 end

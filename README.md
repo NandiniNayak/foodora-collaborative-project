@@ -1,7 +1,5 @@
 # README
--test - long
-- test - andrew
-
+- test menu branch allen
 - Starter template created for rails app.
 - Following gems are installed
 `gem 'bootstrap', '~> 4.1.1'` - bootstrap v4 style sheet can be used. [bootstrap docs](https://getbootstrap.com/docs/4.1/components/)
