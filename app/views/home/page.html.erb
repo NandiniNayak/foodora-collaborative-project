@@ -1,2 +1,205 @@
-<h1>Home#page</h1>
-<p>Find me in app/views/home/page.html.erb</p>
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Foodora</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/small-business.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <span class="border-bottom"></span>
+      <div class="container">
+        <%= link_to root_path do %>
+            <%= image_tag "foodora", class: "logo" %>
+        <% end %>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+               <% if user_signed_in? %>
+					<li><%= link_to('My Account', edit_user_registration_path) %></li>
+					<li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+				<% else %>
+					<li><%= link_to('Sign in', new_user_session_path) %></li>
+					<li><%= link_to('Sign up', new_user_registration_path) %></li>
+				<% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+      <!-- Heading Row -->
+      <div class="row my-4">
+        <div class="col-lg-8">
+           <%= image_tag("borger.jpg", class: "img-fluid rounded") %>
+        </div>
+        <!-- /.col-lg-8 -->
+        <div class="col-lg-4">
+          <h1>Welcome!</h1>
+          <p>Please browse the menu below for our tasty delights</p>
+          <a class="btn btn-primary btn-lg" href="#">Give me a look then!</a>
+        </div>
+        <!-- /.col-md-4 -->
+      </div>
+      <!-- /.row -->
+
+      <!-- Form for address -->
+    <form class="my-5">
+      <input type="email" class="form-control" placeholder="Please enter your Address">
+    </form>
+      <!-- Content Row -->
+      <div class="row my-5">
+        <div class="col-lg-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+            <%= link_to root_path do %>
+                <%= image_tag "menu1.jpg", class: 'img-fluid' %>
+            <% end %>
+            <div class="card-body">
+              <h4 class="card-title">
+                <%= link_to "Baked fish with Pea-puree", root_path %>
+              </h4>
+              <p class="card-text">Frozen white fish is a handy standby and when cooked in a paper bag, the buttery, lemony juices are locked in for full flavour.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+             <%= link_to root_path do %>
+                <%= image_tag "menu2.jpg", class: 'img-fluid' %>
+            <% end %>
+            <div class="card-body">
+              <h4 class="card-title">
+                <%= link_to "The OG", root_path %>
+              </h4>
+              <p class="card-text">We recommend salmon sashimi. Comes with shallots, red onion, beets with roasted sesame dressing, seaweed salad, tobiko and crispy shallots.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+             <%= link_to root_path do %>
+                <%= image_tag "menu3.jpg", class: 'img-fluid' %>
+            <% end %>
+            <div class="card-body">
+              <h4 class="card-title">
+                <%= link_to "Pastry", root_path %>
+              </h4>
+              <p class="card-text">Marinated in our very famous blend of vinegar and dry spice rub and basted with a sauce of your choice.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+             <%= link_to root_path do %>
+                <%= image_tag "menu4.jpg", class: 'img-fluid' %>
+            <% end %>
+            <div class="card-body">
+              <h4 class="card-title">
+                <%= link_to "Tokyo Tamari", root_path %>
+              </h4>
+              <p class="card-text">We recommend cooked prawns. Comes with edamame, coriander, chilli, carrot & kale, with a spicy shoyu and lemon dressing, wasabi peas and crispy shallots.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+             <%= link_to root_path do %>
+                <%= image_tag "menu6.jpg", class: 'img-fluid' %>
+            <% end %>
+            <div class="card-body">
+              <h4 class="card-title">
+                <%= link_to "Chicken pumpkin tagine with almond pilaf", root_path %>
+              </h4>
+              <p class="card-text">This wholesome Middle Eastern dish combines spicy marinated chicken with sweet pumpkin and raisins, served on a bed of almond pilaf.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+            <%= link_to root_path do %>
+                <%= image_tag "menu5.jpg", class: 'img-fluid' %>
+            <% end %>
+            <div class="card-body">
+              <h4 class="card-title">
+                <%= link_to "Minestrone", root_path %>
+              </h4>
+              <p class="card-text">Minestrone is a thick soup of Italian origin made with vegetables, often with the addition of pasta or rice, sometimes both. Common ingredients include beans, onions, celery, carrots, stock, and tomatoes.</p>
+            </div>
+          </div>
+        </div>
+          <div class="col-lg-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+             <%= link_to root_path do %>
+                <%= image_tag "menu7.jpg", class: 'img-fluid' %>
+            <% end %>
+            <div class="card-body">
+              <h4 class="card-title">
+                <%= link_to "Chicken and chips", root_path %>
+              </h4>
+              <p class="card-text">like chicken but with chips too.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+             <%= link_to root_path do %>
+                <%= image_tag "menu8.jpg", class: 'img-fluid' %>
+            <% end %>
+            <div class="card-body">
+              <h4 class="card-title">
+                <%= link_to "guess what more fucking chicken", root_path %>
+              </h4>
+              <p class="card-text">Arthur Favourite</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+            <%= link_to root_path do %>
+                <%= image_tag "menu9.jpg", class: 'img-fluid' %>
+            <% end %>
+            <div class="card-body">
+              <h4 class="card-title">
+                <%= link_to "English Breakfast", root_path %>
+              </h4>
+              <p class="card-text">The traditional full English breakfast includes bacon, fried eggs, grilled tomatoes, fried mushrooms, buttered toast, and sausages.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer>
+      
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+
+</html>
