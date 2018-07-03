@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :restaurants do
     resources :reviews, except: [:show, :index]
   end
-  
+
 
   get 'comment/index' => 'comment#index'
 

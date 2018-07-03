@@ -12,6 +12,7 @@ gem 'devise'
 gem 'ratyrate'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'country_select'
+gem 'open_gem'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
