@@ -10,10 +10,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_27_022518) do
+ActiveRecord::Schema.define(version: 2018_07_02_040653) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "customers", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "phone"
+    t.string "street"
+    t.string "city"
+    t.string "state"
+    t.string "country"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_customers_on_user_id"
+  end
+
+  create_table "menus", force: :cascade do |t|
+    t.string "name"
+    t.string "picture"
+    t.string "ingredients"
+    t.integer "quantity"
+    t.decimal "price"
+    t.bigint "restaurant_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["restaurant_id"], name: "index_menus_on_restaurant_id"
+  end
+
+  create_table "restaurants", force: :cascade do |t|
+    t.string "name"
+    t.string "street"
+    t.string "city"
+    t.string "state"
+    t.string "country"
+    t.string "phone"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_restaurants_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -32,4 +71,7 @@ ActiveRecord::Schema.define(version: 2018_06_27_022518) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "customers", "users"
+  add_foreign_key "menus", "restaurants"
+  add_foreign_key "restaurants", "users"
 end
