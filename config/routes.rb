@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
+  post '/rate' => 'rater#create', :as => 'rate'
+  devise_for :users
   resources :menus
   resources :customers
-  resources :restaurants
+  resources :restaurants do
+    resources :reviews, except: [:show, :index]
+  end
   resources :charges, only: [:new, :create]
-  devise_for :users
 
   get 'comment/index' => 'comment#index'
 
