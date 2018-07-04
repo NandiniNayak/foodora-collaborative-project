@@ -2,7 +2,7 @@
 
 <h1>Menus</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
@@ -19,11 +19,11 @@
     <% @menus.each do |menu| %>
       <tr>
         <td><%= menu.name %></td>
-        <td><%= menu.picture %></td>
+        <td><%= image_tag(menu.picture_url, width: "30%", height: "30%") %></td>
         <td><%= menu.ingredients %></td>
         <td><%= menu.quantity %></td>
         <td><%= menu.price %></td>
-        <td><%= menu.restaurant %></td>
+        <td><%= menu.restaurant.name %></td>
         <td><%= link_to 'Show', menu %></td>
         <td><%= link_to 'Edit', edit_menu_path(menu) %></td>
         <td><%= link_to 'Destroy', menu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
