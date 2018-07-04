@@ -67,6 +67,10 @@ class MenusController < ApplicationController
       @menu = Menu.find(params[:id])
     end
 
+    def set_restaurant
+     @restaurant = Restaurant.find(params[:restaurant_id])
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def menu_params
       params.require(:menu).permit(:name, :picture, :ingredients, :quantity, :price, :restaurant_id)

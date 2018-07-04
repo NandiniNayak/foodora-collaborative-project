@@ -27,6 +27,9 @@
         <td><%= link_to 'Show', menu %></td>
         <td><%= link_to 'Edit', edit_menu_path(menu) %></td>
         <td><%= link_to 'Destroy', menu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <br>
+        <td><%= link_to 'Buy', new_charge_path(:menu_id => menu.id), method: :get, class: "btn btn-primary" %></td>
+        <br><br>
       </tr>
     <% end %>
   </tbody>

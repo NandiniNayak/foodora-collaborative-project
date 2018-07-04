@@ -14,6 +14,8 @@ gem 'country_select'
 gem 'open_gem'
 gem 'carrierwave', '~> 1.0'
 gem 'cloudinary'
+gem 'stripe'
+gem 'mailgun-ruby', '~>1.1.6'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
