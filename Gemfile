@@ -9,6 +9,10 @@ gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
 gem 'simple_form'
 gem 'devise'
+gem 'carrierwave', '~> 1.0'
+gem 'cloudinary'
+gem 'stripe'
+gem 'mailgun-ruby', '~>1.1.6'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -52,6 +56,9 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'better_errors'
+  gem 'guard'
+  gem 'guard-livereload', '~> 2.5'
 end
 
 group :test do

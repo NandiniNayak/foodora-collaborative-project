@@ -1,0 +1,45 @@
+<%= form_tag charges_path do %>
+  <article>
+    <% if flash[:error].present? %>
+      <div id="error_explanation">
+        <p><%= flash[:error] %></p>
+      </div>
+    <% end %>
+    <p>
+      <strong>Name:</strong>
+      <%= @menu.name %>
+    </p>
+    <p>
+      <strong>Picture:</strong>
+      <%= image_tag(@menu.picture_url, width: "50%", height: "50%") %>
+    </p>
+    <p>
+      <strong>Ingredients:</strong>
+      <%= @menu.ingredients %>
+    </p>
+    <p>
+      <strong>Quantity:</strong>
+      <%= @menu.quantity %>
+    </p>
+    <p>
+      <strong>Price:</strong>
+      <%= @menu.price %>
+    </p>
+    <p>
+      <strong>Restaurant:</strong>
+      <%= @menu.restaurant.name %>
+    </p>
+    <br>
+    <br>
+    <script
+              src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="<%= ENV["FOODORA_STRIPE_PUBLISHABLE_KEY"] %>"
+              data-amount="<%= (@menu.price) * 100 %>"
+              data-name="FOODORA"
+              data-description="Check Out"
+              data-image="https://i0.wp.com/www.marketingdirecto.com/wp-content/uploads/2015/09/foodora.png?resize=300%2C300&ssl=1"
+              data-locale="auto"
+              data-currency="aud"></script>
+    <%= hidden_field_tag :price, @menu.price %>
+  </article>
+<% end %>
