@@ -154,6 +154,7 @@ SimpleForm.setup do |config|
   # Default priority for country inputs.
   # config.country_priority = nil
 
+  config.input_mappings = { /country/ => :string }
   # When false, do not use translations for labels.
   # config.translate_labels = true
 
@@ -179,4 +180,5 @@ SimpleForm.setup do |config|
   # Defines validation classes to the input_field. By default it's nil.
   # config.input_field_valid_class = 'is-valid'
   # config.input_field_error_class = 'is-invalid'
+  config.input_mappings = { /country/ => :string }
 end

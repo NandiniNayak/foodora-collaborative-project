@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Menus</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Picture</th>
+      <th>Ingredients</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Restaurant</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @menus.each do |menu| %>
+      <tr>
+        <td><%= menu.name %></td>
+        <td><%= image_tag(menu.picture_url, width: "30%", height: "30%") %></td>
+        <td><%= menu.ingredients %></td>
+        <td><%= menu.quantity %></td>
+        <td><%= menu.price %></td>
+        <td><%= menu.restaurant.name %></td>
+        <td><%= link_to 'Show', menu %></td>
+        <td><%= link_to 'Edit', edit_menu_path(menu) %></td>
+        <td><%= link_to 'Destroy', menu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <br>
+        <td><%= link_to 'Buy', new_charge_path(:menu_id => menu.id), method: :get, class: "btn btn-primary" %></td>
+        <br><br>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Menu', new_menu_path %>

@@ -1,0 +1,62 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="table-responsive">
+          <table class="table">
+            <tbody>
+              <tr>
+                <td><strong>Name:</strong></td>
+                <td><%= @restaurant.name %></td>
+              </tr>
+              <tr>
+                <td><strong>Street:</strong></td>
+                <td><%= @restaurant.street %></td>
+              </tr>
+              <tr>
+                <td><strong>City:</strong></td>
+                <td><%= @restaurant.city %></td>
+              </tr>
+              <tr>
+                <td><strong>State:</strong></td>
+                <td><%= @restaurant.state %></td>
+              </tr>
+              <tr>
+                <td><strong>Country:</strong></td>
+                <td><%= @restaurant.country %></td>
+              </tr>
+              <tr>
+                <td><strong>Phone:</strong></td>
+                <td><%= @restaurant.phone %></td>
+              </tr>
+              <tr>
+                <td><strong>User:</strong></td>
+                <td><%= @restaurant.user %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
+<%= link_to 'Back', restaurants_path(@restaurant) %>
+
+<div class="col-md-7 col-md-offset-1">
+         <h1 class="review_title"><%= @restaurant.name %></h1>
+         <p><%= @restaurant.description %></p>
+
+         <% if @reviews.blank? %>
+           <h3>No reviews just yet, would you like to add the first!</h3>
+           <%= link_to "Write Review", new_restaurant_review_path(@restaurant), class: "btn btn-danger" %>
+         <% else %>
+           <% @reviews.each do |review| %>
+             <div class="reviews">
+               <p><%= review.rating %></p>
+               <p><%= review.comment %></p>
+             </div>
+           </div>
+           <% end %>
+         <% end %>
