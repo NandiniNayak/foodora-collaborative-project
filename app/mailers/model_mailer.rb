@@ -5,12 +5,13 @@ class ModelMailer < ApplicationMailer
   #
   #   en.model_mailer.new_receipt_notification.subject
   #
-  def new_receipt_notification
-    mail to: "2018.gentech@gmail.com", subject: "Test"
+  def new_receipt_notification(email)
+    @email = email
+    mail to: @email, subject: "Test"
   end
 
   def create
-    ModelMailer.new_receipt_notification.deliver_now
+    ModelMailer.new_receipt_notification(@email).deliver_now
   end
 
 end

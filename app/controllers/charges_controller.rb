@@ -21,7 +21,9 @@ class ChargesController < ApplicationController
       description: 'Test',
       currency: 'aud'
     )
-    ModelMailer.new_receipt_notification.deliver_now
+    @email = customer.email
+    ModelMailer.new_receipt_notification(@email).deliver_now
+    
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to new_charge_path
